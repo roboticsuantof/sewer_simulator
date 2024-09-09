@@ -1,0 +1,479 @@
+<?xml version='1.0'?>
+<sdf version='1.7'>
+
+  <odom_publish_frequency>1</odom_publish_frequency>
+  <topic>cmd_vel</topic>
+
+  <model name='arco'>
+    <plugin filename="ignition-gazebo-imu-system"
+      name="ignition::gazebo::systems::Imu">
+    </plugin>
+    <link name='base_link'>
+      <inertial>
+        <mass>20</mass>
+        <inertia>
+          <ixx>0.273333</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.758667</iyy>
+          <iyz>0</iyz>
+          <izz>0.966667</izz>
+        </inertia>
+        <pose>0 0 0 0 -0 0</pose>
+      </inertial>
+      <pose>0 0 0 0 -0 0</pose>
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>0.66 0.38 0.14</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Grey</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+          <ambient>1 1 1 1</ambient>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+          <specular>0.01 0.01 0.01 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+      </visual>
+      <collision name='collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.66 0.38 0.14</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <collision name='imu_collision'>
+        <pose>0.12 0 0.09 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.031 0.031 0.01</size>
+          </box>
+        </geometry>
+      </collision>
+      <!-- <collision name='os1_sensor_collision'>
+        <pose>0.2795 0 0.12 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.0717</length>
+            <radius>0.0516</radius>
+          </cylinder>
+        </geometry>
+      </collision> -->
+      <visual name='imu_visual'>
+        <pose>0.12 0 0.09 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://arco/meshes/razor_imu/razor_imu.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 0 0  1</ambient>
+          <diffuse>1 0 0 1</diffuse>
+          <specular>1 0 0  1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+      </visual>
+      <sensor name="imu_sensor" type="imu">
+        <always_on>1</always_on>
+        <update_rate>1</update_rate>
+        <visualize>true</visualize>
+        <topic>arco/imu</topic>
+        <ignition_frame_id>arco/imu</ignition_frame_id>
+      </sensor>
+    </link>
+
+    <link name='front_right'>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.00104176</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00104176</iyy>
+          <iyz>0</iyz>
+          <izz>0.001225</izz>
+        </inertia>
+        <pose>0 0 0 0 -0 0</pose>
+      </inertial>
+      <pose>0.21 -0.247 -0.06 -1.57 0 0</pose>
+      <visual name='visual'>
+        <pose>0 0 0 1.57 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.002 0.002 0.002</scale>
+            <uri>model://arco/meshes/mecanum/mecanum_wheel_left.STL</uri>
+          </mesh> 
+        </geometry>
+        <material>
+          <ambient>1 0 0  1</ambient>
+          <diffuse>1 0.4 0 1</diffuse>
+          <specular>1 0.4 0  1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+      </visual>
+      <collision name='collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.1015</radius>
+            <length>0.07</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+
+     <link name='rear_right'>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.00104176</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00104176</iyy>
+          <iyz>0</iyz>
+          <izz>0.001225</izz>
+        </inertia>
+        <pose>0 0 0 0 -0 0</pose>
+      </inertial>
+      <pose>-0.21 -0.247 -0.06 -1.57 -0 0</pose>
+      <visual name='visual'>
+        <pose>0 0 0 1.57 -0 0</pose>
+        <geometry>
+         <mesh>
+            <scale>0.002 0.002 0.002</scale>
+            <uri>model://arco/meshes/mecanum/mecanum_wheel_left.STL</uri>
+          </mesh> 
+        </geometry>
+        <material>
+          <ambient>1 0 0  1</ambient>
+          <diffuse>1 0.4 0 1</diffuse>
+          <specular>1 0.4 0  1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+      </visual>
+      <collision name='collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.1015</radius>
+            <length>0.07</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+     <link name='front_left'>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.00104176</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00104176</iyy>
+          <iyz>0</iyz>
+          <izz>0.001225</izz>
+        </inertia>
+        <pose>0 0 0 0 -0 0</pose>
+      </inertial>
+      <pose>0.21 0.247 -0.06 -1.57 -0 0</pose>
+      <visual name='visual'>
+        <pose>0 0 0 1.57 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.002 0.002 0.002</scale>
+            <uri>model://arco/meshes/mecanum/mecanum_wheel_left.STL</uri>
+          </mesh> 
+        </geometry>
+        <material>
+          <ambient>1 0 0  1</ambient>
+          <diffuse>1 0.4 0 1</diffuse>
+          <specular>1 0.4 0  1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+      </visual>
+      <collision name='collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.1015</radius>
+            <length>0.07</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+    <link name='rear_left'>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.00104176</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00104176</iyy>
+          <iyz>0</iyz>
+          <izz>0.001225</izz>
+        </inertia>
+        <pose>0 0 0 1.57 -0 0</pose>
+      </inertial>
+      <pose>-0.21 0.247 -0.06 -1.57 -0 0</pose>
+      <visual name='visual'>
+        <pose>0 0 0 1.57 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.002 0.002 0.002</scale>
+            <uri>model://arco/meshes/mecanum/mecanum_wheel_left.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 0 0  1</ambient>
+          <diffuse>1 0.4 0 1</diffuse>
+          <specular>1 0.4 0  1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+      </visual>
+      <collision name='collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.1015</radius>
+            <length>0.07</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name='base_cover'>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.0341417</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0363083</iyy>
+          <iyz>0</iyz>
+          <izz>0.0704333</izz>
+        </inertia>
+        <pose>0 0 0 0 -0 0</pose>
+      </inertial>
+      <pose>-0 0 0.075 0 -0 0</pose>
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>0.66 0.64 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 1 1 1</ambient>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+          <specular>0.01 0.01 0.01 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <pose>0 0 0 0 -0 0</pose>
+      </visual>
+      <collision name='collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.66 0.64 0.01</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name='base_platform'>
+      <inertial>
+        <mass>10</mass>
+        <inertia>
+          <ixx>0.336333</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.208333</iyy>
+          <iyz>0</iyz>
+          <izz>0.394667</izz>
+        </inertia>
+        <pose>0 0 0 0 -0 0</pose>
+      </inertial>
+      <pose>-0.1 -0 0.23 0 -0 0</pose>
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>0.4 0.56 0.3</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5 1</ambient>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+          <specular>0.01 0.01 0.01 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+      </visual>
+      <collision name='collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.4 0.56 0.3</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="os1">
+      <pose>0.18 0 0.11 0 0 0</pose>
+      <inertial>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.000090623</ixx>
+          <iyy>0.000090623</iyy>
+          <izz>0.000091036</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="top_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.04267</radius>
+            <length>0.07357</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="top_visual">
+        <pose>0 0 -0.0376785 0 0 1.5707</pose>
+        <geometry>
+          <mesh>
+            <uri>model://sensors/velodyne_hdl32/meshes/velodyne_top.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <sensor name='sensor' type='gpu_lidar'>
+      <!-- <sensor name='gpu_lidar' type='gpu_radar'> -->
+          <topic>arco/os1_cloud_node</topic>
+          <ignition_frame_id>arco/os1_lidar</ignition_frame_id>
+          <pose>0 0 0.029335 0 0 3.1416</pose> 
+          <update_rate>10</update_rate>
+          <ray>
+            <noise>
+              <type>gaussian</type>
+              <mean>0.0</mean>
+              <stddev>0.02</stddev>
+            </noise> 
+            <scan>
+                <horizontal>
+                <samples>512</samples>
+                <resolution>1</resolution>
+                <min_angle>-3.14159</min_angle>
+                <max_angle>3.14159</max_angle>
+              </horizontal>
+              <vertical>
+                <samples>16</samples>
+                <resolution>1</resolution>
+                <min_angle>-0.2897247</min_angle>
+                <max_angle>0.2897247</max_angle>
+              </vertical>
+            </scan>
+            <range>
+              <min>0.5</min>
+              <max>25.0</max>
+              <resolution>0.01</resolution>
+            </range>
+          </ray>
+          <alwaysOn>1</alwaysOn>
+          <visualize>true</visualize>
+        </sensor>
+    </link>   
+
+    <joint name="velodyne_joint" type="fixed">
+      <child>os1</child>
+      <parent>base_cover</parent>
+      <pose>0.28 0 1.26 0 -0 0</pose>
+    </joint>
+
+     <joint name='JOINT_fixed_1' type='fixed'>
+      <parent>base_link</parent>
+      <child>base_cover</child>
+      <pose>0 0 0 0 -0 0</pose>
+    </joint>
+
+    <joint name='JOINT_fixed_2' type='fixed'>
+      <parent>base_cover</parent>
+      <child>base_platform</child>
+      <pose>0 0 0 0 -0 0</pose>
+    </joint>
+
+    <joint name='JOINT_wheel_front_right' type='revolute'>
+      <parent>base_link</parent>
+      <child>front_right</child>
+      <pose>0 0 0.035 0 -0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.79769e+308</lower>
+          <upper>1.79769e+308</upper>
+        </limit>
+      </axis>
+    </joint>
+
+    <joint name='JOINT_wheel_rear_right' type='revolute'>
+      <parent>base_link</parent>
+      <child>rear_right</child>
+      <pose>0 0 0.035 0 -0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.79769e+308</lower>
+          <upper>1.79769e+308</upper>
+        </limit>
+      </axis>
+    </joint>
+
+    <joint name='JOINT_wheel_front_left' type='revolute'>
+      <parent>base_link</parent>
+      <child>front_left</child>
+      <pose>0 0 -0.035 0 -0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.79769e+308</lower>
+          <upper>1.79769e+308</upper>
+        </limit>
+      </axis>
+    </joint>
+
+    <joint name='JOINT_wheel_rear_left' type='revolute'>
+      <parent>base_link</parent>
+      <child>rear_left</child>
+      <pose>0 0 -0.035 0 -0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.79769e+308</lower>
+          <upper>1.79769e+308</upper>
+        </limit>
+      </axis>
+    </joint>
+
+    <!-- Track drive -->
+      <plugin filename="ignition-gazebo-diff-drive-system"
+              name="ignition::gazebo::systems::DiffDrive">
+        <left_joint>JOINT_wheel_front_left</left_joint>
+        <left_joint>JOINT_wheel_rear_left </left_joint>
+        <right_joint>JOINT_wheel_front_right</right_joint>
+        <right_joint>JOINT_wheel_rear_right</right_joint>
+        <wheel_separation>0.42</wheel_separation>
+        <wheel_radius>0.1015</wheel_radius>
+        <odom_publish_frequency>100</odom_publish_frequency>
+        <topic>arco/cmd_vel</topic> #Custom topic that this system will subscribe to in order to receive command velocity messages. This element if optional, and the default value is /model/{name_of_model}/cmd_vel.
+        <odom_topic>arco/odometry</odom_topic>  Custom topic on which this system will publish odometry messages. This element if optional, and the default value is /model/{name_of_model}/odometry.
+        <tf_topic>arco/tf_odom_to_baselink</tf_topic>
+        <frame_id>arco/odom</frame_id>
+        <child_frame_id>arco/base_link</child_frame_id>
+      </plugin>
+
+  </model>
+</sdf>

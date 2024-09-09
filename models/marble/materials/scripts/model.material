@@ -1,0 +1,14 @@
+
+material HD2/HD2_Diffuse
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture HD2_Albedo.jpg
+        }
+      }
+    }
+  }

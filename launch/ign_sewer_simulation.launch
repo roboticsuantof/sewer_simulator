@@ -1,0 +1,70 @@
+<launch>
+
+    <param name="use_sim_time" value="true"/>
+    <env name="IGN_GAZEBO_RESOURCE_PATH" value="$(find sewer_simulator)/models:$(find sewer_simulator)/models/sensors:$(find sewer_simulator)/worlds/"/>
+
+    # --------------------------------------------------------------------- PARAMETER --------------------------------------------------------------------- 
+    ## Parameter
+    <arg name="world_name" default="sewer"/>
+    <arg name="ugv_name" default="marble" />
+    <!-- <arg name="model" default="siar/siar.sdf"/> -->
+    <arg name="model" default="$(arg ugv_name)/$(arg ugv_name).sdf"/>
+    #UGV Parameter Define real/simulation and controller type
+    <arg name="simulation" value="true" />                                  <!-- Define if it will run on a robot or simulation -->
+
+    # --------------------------------------------------------------------- NODES --------------------------------------------------------------------- 
+    
+    # ---------------------------------------------------Start Gazebo environment ---------------------------------------------------
+    # Node regarding with World
+    <include file="$(find ros_ign_gazebo)/launch/ign_gazebo.launch">
+        <arg name="ign_args" value="-r -v 4 $(find sewer_simulator)/worlds/$(arg world_name).world"/>
+        <env name="IGN_GAZEBO_RESOURCE_PATH" value="$(optenv IGN_GAZEBO_RESOURCE_PATH):$(find sewer_simulator)/models:$(find sewer_simulator)/models/sensors:$(find sewer_simulator)/worlds/"/>
+    </include>
+
+     # Spawn the node. IMPORTANT: the world name must be the same as the filename of the world file
+
+    <arg name="x_pos" default="-14" /> 
+    <arg name="y_pos" default="0.00" />
+    <arg name="z_pos" default="0.17" />
+    <arg name="y_rot" default="0.00" />
+
+    <node
+        pkg="ros_ign_gazebo"
+        type="create"
+        name="ugv_spawn"
+        output="screen"
+        args="-world $(arg world_name) -file $(find sewer_simulator)/models/$(arg model) -name $(arg ugv_name) -allow_renaming true -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -Y $(arg y_rot) --timeout 100000 ">
+    </node>
+
+    # node provides a network bridge which enables the exchange of messages between ROS and Gazebo Transport
+        ## args: declare inf. about mesage to exchange (format: name_topic@type_ros_msgs@type_ign_gazebo_msgs )
+    <node
+        pkg="ros_ign_bridge"
+        type="parameter_bridge"
+        name="$(anon ros_ign_bridge)"
+        output="screen"
+        args="
+            /world/$(arg world_name)/pose/info@tf2_msgs/TFMessage@ignition.msgs.Pose_V
+            /clock@rosgraph_msgs/Clock@ignition.msgs.Clock  
+            /$(arg ugv_name)/os1_cloud_node/points@sensor_msgs/PointCloud2@ignition.msgs.PointCloudPacked 
+            /$(arg ugv_name)/imu@sensor_msgs/Imu@ignition.msgs.IMU
+            /$(arg ugv_name)/cmd_vel@geometry_msgs/Twist@ignition.msgs.Twist 
+            /$(arg ugv_name)/odometry@nav_msgs/Odometry@ignition.msgs.Odometry
+            /$(arg ugv_name)/tf_odom_to_baselink@tf2_msgs/TFMessage@ignition.msgs.Pose_V
+            ">
+        <remap from="/$(arg ugv_name)/tf_odom_to_baselink" to ="/tf"/>   #Publish odom tf 
+        <remap from="/$(arg ugv_name)/os1_cloud_node/points" to="/$(arg ugv_name)_os1_cloud_node/points_non_dense" />
+        <remap from="/$(arg ugv_name)/odometry" to="/$(arg ugv_name)/odom" />
+    </node>
+
+
+    <node pkg="sewer_simulator" type="ign_clock_publisher" name="ign_clock_publisher"/>
+
+    # --------------------------------------------------- UGV Simulation ---------------------------------------------------
+
+    # Start teleop_joy
+    <include file="$(find teleop_joy_pkg)/launch/teleop_joy.launch">
+        <arg name="cmd_vel_topic" default="/$(arg ugv_name)/cmd_vel" />
+    </include>
+
+</launch>

@@ -1,0 +1,56 @@
+<?xml version='1.0'?>
+ <sdf version='1.5'>
+  <model name="ramp">
+    
+   <static>true</static>
+
+    <link name='ramp'>     
+
+      <collision name='collision_1'>
+	<pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>1.67458 1.0 0.15</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual_1'>
+	<pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>1.67458 1.0 0.15</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 1  1</ambient>
+          <diffuse>0.8 0.4 0.4 1</diffuse>
+          <specular>0.7 0.4 0.3  1</specular>
+          <emissive>0.4 0.3 0.2 1</emissive>
+        </material>
+      </visual>
+      <collision name='collision_2'>
+      <pose>3.98729 0 0 0 0.023809 0</pose>
+        <geometry>
+          <box>
+            <size>6.3 1.0 0.01</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual_2'>
+      <pose>3.98729 0 0 0 0.023809 0</pose>
+        <geometry>
+          <box>
+            <size>6.3 1.0 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 1  1</ambient>
+          <diffuse>0.8 0.4 0.4 1</diffuse>
+          <specular>0.7 0.4 0.3  1</specular>
+          <emissive>0.4 0.3 0.2 1</emissive>
+        </material>
+      </visual>
+    </link>
+
+  </model>
+</sdf>

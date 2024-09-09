@@ -1,0 +1,1271 @@
+<?xml version='1.0'?>
+ <sdf version='1.7'>
+  <model name="siar">
+
+  <odom_publish_frequency>1</odom_publish_frequency>
+  <topic>cmd_vel</topic>
+
+<!-- DEFINITION OF LINKS -->
+
+<!-- 1. Definition of Chassis-->
+
+    <link name='chassis'>
+      <plugin filename="ignition-gazebo-imu-system"
+        name="ignition::gazebo::systems::Imu">
+      </plugin>
+      <pose>0 0.0 .105 0 0 0</pose>
+      <collision name='collision'>
+        <geometry>
+          <box>
+            <size>.796 .11 .06</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>.796 .11 .06</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.7 0.7 0.7 1</ambient>      <!-- Clear gray-->
+          <diffuse>0.65 0.65 0.65 1</diffuse>      <!-- Clear gray -->
+          <specular>0.6 0.6 0.6 1</specular>    <!-- Clear gray -->
+          <emissive>0 0 0 1</emissive>          <!-- Does not emit light -->
+        </material>
+      </visual>
+    </link>
+
+<!-- 2. Definition of Arms -->
+    <link name='arm_right_1'>
+      <pose>.0 .12 .125 0 0 0</pose>
+      <collision name='collision'>
+        <geometry>
+          <box>
+            <size>.08 .17 .02</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>.08 .17 .02</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.7 0.7 0.7 1</ambient>      <!-- Clear gray-->
+          <diffuse>0.65 0.65 0.65 1</diffuse>      <!-- Clear gray -->
+          <specular>0.6 0.6 0.6 1</specular>    <!-- Clear gray -->
+          <emissive>0 0 0 1</emissive>          <!-- Does not emit light -->
+        </material>
+      </visual>
+     </link> 
+
+     <link name='arm_right_2'>
+      <pose>.292 .12 .125 0 0 0</pose> 
+      <collision name='collision'>
+        <geometry>
+          <box>
+            <size>.08 .17 .02</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>.08 .17 .02</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.7 0.7 0.7 1</ambient>      <!-- Clear gray-->
+          <diffuse>0.65 0.65 0.65 1</diffuse>      <!-- Clear gray -->
+          <specular>0.6 0.6 0.6 1</specular>    <!-- Clear gray -->
+          <emissive>0 0 0 1</emissive>          <!-- Does not emit light -->
+        </material>
+      </visual>
+     </link>
+
+     <link name='arm_right_3'>
+      <pose>-.292 .12 .125 0 0 0</pose>
+      <collision name='collision'>
+        <geometry>
+          <box>
+            <size>.08 .17 .02</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>.08 .17 .02</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.7 0.7 0.7 1</ambient>      <!-- Clear gray-->
+          <diffuse>0.65 0.65 0.65 1</diffuse>      <!-- Clear gray -->
+          <specular>0.6 0.6 0.6 1</specular>    <!-- Clear gray -->
+          <emissive>0 0 0 1</emissive>          <!-- Does not emit light -->
+        </material>
+      </visual>
+     </link>
+
+    <link name='arm_left_1'>
+       <pose>.0 -.12 .125 0 0 0</pose>
+       <collision name='collision'>
+        <geometry>
+          <box>
+            <size>.08 .17 .02</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>.08 .17 .02</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.7 0.7 0.7 1</ambient>      <!-- Clear gray-->
+          <diffuse>0.65 0.65 0.65 1</diffuse>      <!-- Clear gray -->
+          <specular>0.6 0.6 0.6 1</specular>    <!-- Clear gray -->
+          <emissive>0 0 0 1</emissive>          <!-- Does not emit light -->
+        </material>
+      </visual>
+    </link>
+
+    <link name='arm_left_2'> 
+      <pose>.292 -.12 .125 0 0 0</pose>
+      <collision name='collision'>
+        <geometry>
+          <box>
+            <size>.08 .17 .02</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>.08 .17 .02</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.7 0.7 0.7 1</ambient>      <!-- Clear gray-->
+          <diffuse>0.65 0.65 0.65 1</diffuse>      <!-- Clear gray -->
+          <specular>0.6 0.6 0.6 1</specular>    <!-- Clear gray -->
+          <emissive>0 0 0 1</emissive>          <!-- Does not emit light -->
+        </material>
+      </visual>
+    </link>
+
+  <link name='arm_left_3'> 
+      <pose>-.292 -.12 .125 0 0 0</pose>
+      <collision name='collision'>
+        <geometry>
+          <box>
+            <size>.08 .17 .02</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>.08 .17 .02</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.7 0.7 0.7 1</ambient>      <!-- Clear gray-->
+          <diffuse>0.65 0.65 0.65 1</diffuse>      <!-- Clear gray -->
+          <specular>0.6 0.6 0.6 1</specular>    <!-- Clear gray -->
+          <emissive>0 0 0 1</emissive>          <!-- Does not emit light -->
+        </material>
+      </visual>
+   </link>
+
+    <joint type="revolute" name="hinge_arm_right_1">
+      <pose>0 -.075 -0.01 0 0 0</pose>
+      <child>arm_right_1</child>
+      <parent>chassis</parent>
+      <axis>
+        <limit>
+          <lower>-1.2</lower>
+          <upper>1.2</upper>
+        </limit>
+        <xyz>0 0 1</xyz>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0.1</damping>
+          <friction>0.5</friction>
+        </dynamics>
+      </axis>
+    </joint>
+    <joint type="revolute" name="hinge_arm_right_2">
+      <pose>0 -.075 -0.01 0 0 0</pose>
+      <child>arm_right_2</child>
+      <parent>chassis</parent>
+      <axis>
+        <limit>
+          <lower>-1.2</lower>
+          <upper>1.2</upper>
+        </limit>
+        <xyz>0 0 1</xyz>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0.1</damping>
+          <friction>0.5</friction>
+        </dynamics>
+      </axis>
+    </joint>
+    <joint type="revolute" name="hinge_arm_right_3">
+      <pose>0 -.075 -0.01 0 0 0</pose>
+      <child>arm_right_3</child>
+      <parent>chassis</parent>
+      <axis>
+        <limit>
+          <lower>-1.2</lower>
+          <upper>1.2</upper>
+        </limit>
+        <xyz>0 0 1</xyz>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0.1</damping>
+          <friction>0.5</friction>
+        </dynamics>
+      </axis>
+    </joint>
+    <joint type="revolute" name="hinge_arm_left_1">
+      <pose>0 .075 -0.01 0 0 0</pose>
+      <child>arm_left_1</child>
+      <parent>chassis</parent>
+      <axis>
+        <limit>
+          <lower>-1.2</lower>
+          <upper>1.2</upper>
+        </limit>
+        <xyz>0 0 1</xyz>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0.1</damping>
+          <friction>0.5</friction>
+        </dynamics>
+      </axis>
+    </joint>
+    <joint type="revolute" name="hinge_arm_left_2">
+      <pose>0 .075 -0.01 0 0 0</pose>
+      <child>arm_left_2</child>
+      <parent>chassis</parent>
+      <axis>
+        <limit>
+          <lower>-1.2</lower>
+          <upper>1.2</upper>
+        </limit>
+        <xyz>0 0 1</xyz>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0.1</damping>
+          <friction>0.5</friction>
+        </dynamics>
+      </axis>
+    </joint>     
+    <joint type="revolute" name="hinge_arm_left_3">
+      <pose>0 .075 -0.01 0 0 0</pose>
+      <child>arm_left_3</child>
+      <parent>chassis</parent>
+      <axis>
+        <limit>
+          <lower>-1.2</lower>
+          <upper>1.2</upper>
+        </limit>
+        <xyz>0 0 1</xyz>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0.1</damping>
+          <friction>0.5</friction>
+        </dynamics>
+      </axis>
+    </joint>
+
+<!-- 4. Box of battery and electronic and Handle to Cameras  -->
+
+   <link name="box_battery">
+      <collision name='collision_1'>
+      <pose>.0 .0 .26 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.26 .26 .07</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual_1'>
+      <pose>.0 .0 .26 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.26 .26 .07</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 0.5 0 1</ambient>      <!-- Orange ambient color -->
+          <diffuse>1 0.5 0 1</diffuse>      <!-- Orange diffuse color -->
+          <specular>1 0.5 0 1</specular>    <!-- Orange specular color -->
+          <emissive>0 0 0 1</emissive>      <!-- No emissive color -->
+        </material>
+      </visual>
+      <collision name='collision_2'>
+      <pose>.0 .0 .19 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.26 .19 .07</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual_2'>
+      <pose>.0 .0 .19 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.26 .19 .07</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 0.5 0 1</ambient>      <!-- Orange ambient color -->
+          <diffuse>1 0.5 0 1</diffuse>      <!-- Orange diffuse color -->
+          <specular>1 0.5 0 1</specular>    <!-- Orange specular color -->
+          <emissive>0 0 0 1</emissive>      <!-- No emissive color -->
+        </material>
+      </visual>
+      <visual name='visual_3'>
+      <pose>.0 .0 .2975 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.30 .30 .005</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>      <!-- Black ambient color -->
+          <diffuse>0 0 0 1</diffuse>      <!-- Black diffuse color -->
+          <specular>0 0 0 1</specular>    <!-- Black specular color -->
+          <emissive>0 0 0 1</emissive>    <!-- No emissive color (black) -->
+        </material>
+      </visual>
+      <visual name='visual_4'>
+      <pose>.0 .0 .3005 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.28 .28 .001</size>
+          </box>
+        </geometry>
+        <material>
+          <material>
+          <ambient>0.35 0.35 .35 1</ambient>      <!-- DarkGray color-->
+          <diffuse>0.3 0.3 0.3 1</diffuse>      <!-- DarkGray color -->
+          <specular>0.3 0.3 0.3 1</specular>    <!-- DarkGray color -->
+          <emissive>0 0 0 1</emissive>          <!-- Does not emit light -->
+        </material>
+        </material>
+      </visual>
+      <sensor name="imu_sensor" type="imu">
+	<always_on>true</always_on>
+	<update_rate>100</update_rate>
+	<visualize>true</visualize>
+	<topic>imu_siar_topic</topic>
+	<!-- <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+	  <topicName>imu</topicName>
+	  <bodyName>imu_link</bodyName>
+	  <updateRateHZ>10.0</updateRateHZ>
+	  <gaussianNoise>0.0</gaussianNoise>
+	  <xyzOffset>0 0 0</xyzOffset>
+	  <rpyOffset>0 0 0</rpyOffset>
+	  <frameName>imu_link</frameName>
+	</plugin> -->
+	<pose>0 0 0 0 0 0</pose>
+      </sensor>
+   </link>
+
+    <joint type="fixed" name="joint_box_1">
+      <pose>0 0 0 0 0 0</pose>
+      <child>chassis</child>
+      <parent>box_battery</parent>
+    </joint>
+
+<!-- 5. Definition of couplings between Joint-Wheel -->
+
+   <link name="coupling_right_1">
+      <collision name='collision_1'>
+      <pose>.0 .215 .09 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.19 .06 .05</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual_1'>
+      <pose>.0 .215 .09 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.19 .06 .05</size>
+          </box>
+        </geometry>
+        <material>
+          <material>
+          <ambient>0.35 0.35 .35 1</ambient>      <!-- DarkGray color-->
+          <diffuse>0.3 0.3 0.3 1</diffuse>      <!-- DarkGray color -->
+          <specular>0.3 0.3 0.3 1</specular>    <!-- DarkGray color -->
+          <emissive>0 0 0 1</emissive>          <!-- Does not emit light -->
+        </material>
+        </material>
+      </visual>
+      <collision name='collision_2'>
+      <pose>.0 .225 .13 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.11 .04 .03</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual_2'>
+      <pose>.0 .225 .13 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.11 .04 .03</size>
+          </box>
+        </geometry>
+        <material>
+          <material>
+          <ambient>0.35 0.35 .35 1</ambient>      <!-- DarkGray color-->
+          <diffuse>0.3 0.3 0.3 1</diffuse>      <!-- DarkGray color -->
+          <specular>0.3 0.3 0.3 1</specular>    <!-- DarkGray color -->
+          <emissive>0 0 0 1</emissive>          <!-- Does not emit light -->
+        </material>
+        </material>
+      </visual>
+   </link>
+
+   <link name="coupling_right_2">
+      <collision name='collision_1'>
+      <pose>.292 .215 .09 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.19 .06 .05</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual_1'>
+      <pose>.292 .215 .09 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.19 .06 .05</size>
+          </box>
+        </geometry>
+        <material>
+          <material>
+          <ambient>0.35 0.35 .35 1</ambient>      <!-- DarkGray color-->
+          <diffuse>0.3 0.3 0.3 1</diffuse>      <!-- DarkGray color -->
+          <specular>0.3 0.3 0.3 1</specular>    <!-- DarkGray color -->
+          <emissive>0 0 0 1</emissive>          <!-- Does not emit light -->
+        </material>
+        </material>
+      </visual>
+      <collision name='collision_2'>
+      <pose>.292 .225 .13 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.11 .04 .03</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual_2'>
+      <pose>.292 .225 .13 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.11 .04 .03</size>
+          </box>
+        </geometry>
+        <material>
+          <material>
+          <ambient>0.35 0.35 .35 1</ambient>      <!-- DarkGray color-->
+          <diffuse>0.3 0.3 0.3 1</diffuse>      <!-- DarkGray color -->
+          <specular>0.3 0.3 0.3 1</specular>    <!-- DarkGray color -->
+          <emissive>0 0 0 1</emissive>          <!-- Does not emit light -->
+        </material>
+        </material>
+      </visual>
+   </link>
+
+   <link name="coupling_right_3">
+      <collision name='collision_1'>
+      <pose>-.292 .215 .09 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.19 .06 .05</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual_1'>
+      <pose>-.292 .215 .09 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.19 .06 .05</size>
+          </box>
+        </geometry>
+        <material>
+          <material>
+          <ambient>0.35 0.35 .35 1</ambient>      <!-- DarkGray color-->
+          <diffuse>0.3 0.3 0.3 1</diffuse>      <!-- DarkGray color -->
+          <specular>0.3 0.3 0.3 1</specular>    <!-- DarkGray color -->
+          <emissive>0 0 0 1</emissive>          <!-- Does not emit light -->
+        </material>
+        </material>
+      </visual>
+      <collision name='collision_2'>
+      <pose>-.292 .225 .13 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.11 .04 .03</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual_2'>
+      <pose>-.292 .225 .13 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.11 .04 .03</size>
+          </box>
+        </geometry>
+        <material>
+          <material>
+          <ambient>0.35 0.35 .35 1</ambient>      <!-- DarkGray color-->
+          <diffuse>0.3 0.3 0.3 1</diffuse>      <!-- DarkGray color -->
+          <specular>0.3 0.3 0.3 1</specular>    <!-- DarkGray color -->
+          <emissive>0 0 0 1</emissive>          <!-- Does not emit light -->
+        </material>
+        </material>
+      </visual>
+   </link>
+
+   <link name="coupling_left_1">
+      <collision name='collision_1'>
+      <pose>.0 -.215 .09 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.19 .06 .05</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual_1'>
+      <pose>.0 -.215 .09 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.19 .06 .05</size>
+          </box>
+        </geometry>
+        <material>
+          <material>
+          <ambient>0.35 0.35 .35 1</ambient>      <!-- DarkGray color-->
+          <diffuse>0.3 0.3 0.3 1</diffuse>      <!-- DarkGray color -->
+          <specular>0.3 0.3 0.3 1</specular>    <!-- DarkGray color -->
+          <emissive>0 0 0 1</emissive>          <!-- Does not emit light -->
+        </material>
+        </material>
+      </visual>
+      <collision name='collision_2'>
+      <pose>.0 -.225 .13 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.11 .04 .03</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual_2'>
+      <pose>.0 -.225 .13 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.11 .04 .03</size>
+          </box>
+        </geometry>
+        <material>
+          <material>
+          <ambient>0.35 0.35 .35 1</ambient>      <!-- DarkGray color-->
+          <diffuse>0.3 0.3 0.3 1</diffuse>      <!-- DarkGray color -->
+          <specular>0.3 0.3 0.3 1</specular>    <!-- DarkGray color -->
+          <emissive>0 0 0 1</emissive>          <!-- Does not emit light -->
+        </material>
+        </material>
+      </visual>
+   </link>
+
+   <link name="coupling_left_2">
+      <collision name='collision'>
+      <pose>.292 -.215 .09 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.19 .06 .05</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual'>
+      <pose>.292 -.215 .09 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.19 .06 .05</size>
+          </box>
+        </geometry>
+        <material>
+          <material>
+          <ambient>0.35 0.35 .35 1</ambient>      <!-- DarkGray color-->
+          <diffuse>0.3 0.3 0.3 1</diffuse>      <!-- DarkGray color -->
+          <specular>0.3 0.3 0.3 1</specular>    <!-- DarkGray color -->
+          <emissive>0 0 0 1</emissive>          <!-- Does not emit light -->
+        </material>
+        </material>
+      </visual>
+      <collision name='collision_2'>
+      <pose>.292 -.225 .13 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.11 .04 .03</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual_2'>
+      <pose>.292 -.225 .13 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.11 .04 .03</size>
+          </box>
+        </geometry>
+        <material>
+          <material>
+          <ambient>0.35 0.35 .35 1</ambient>      <!-- DarkGray color-->
+          <diffuse>0.3 0.3 0.3 1</diffuse>      <!-- DarkGray color -->
+          <specular>0.3 0.3 0.3 1</specular>    <!-- DarkGray color -->
+          <emissive>0 0 0 1</emissive>          <!-- Does not emit light -->
+        </material>
+        </material>
+      </visual>
+   </link>
+
+   <link name="coupling_left_3">
+      <collision name='collision_1'>
+      <pose>-.292 -.215 .09 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.19 .06 .05</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual_1'>
+      <pose>-.292 -.215 .09 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.19 .06 .05</size>
+          </box>
+        </geometry>
+        <material>
+          <material>
+          <ambient>0.35 0.35 .35 1</ambient>      <!-- DarkGray color-->
+          <diffuse>0.3 0.3 0.3 1</diffuse>      <!-- DarkGray color -->
+          <specular>0.3 0.3 0.3 1</specular>    <!-- DarkGray color -->
+          <emissive>0 0 0 1</emissive>          <!-- Does not emit light -->
+        </material>
+        </material>
+      </visual>
+      <collision name='collision_2'>
+      <pose>-.292 -.225 .13 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.11 .04 .03</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual_2'>
+      <pose>-.292 -.225 .13 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.11 .04 .03</size>
+          </box>
+        </geometry>
+        <material>
+          <material>
+          <ambient>0.35 0.35 .35 1</ambient>      <!-- DarkGray color-->
+          <diffuse>0.3 0.3 0.3 1</diffuse>      <!-- DarkGray color -->
+          <specular>0.3 0.3 0.3 1</specular>    <!-- DarkGray color -->
+          <emissive>0 0 0 1</emissive>          <!-- Does not emit light -->
+        </material>
+        </material>
+      </visual>
+   </link>
+
+      <joint type="revolute" name="hinge_coupling_right_1_1">
+        <pose>.0 .195 0.115 0 0 0</pose>
+        <child>coupling_right_1</child>
+        <parent>arm_right_1</parent>
+        <axis>
+        <limit>
+          <lower>-1.2</lower>
+          <upper>1.2</upper>
+        </limit>
+        <xyz>0 0 1</xyz>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0.2</damping>
+          <friction>0.9</friction>
+        </dynamics>
+      </axis>
+      </joint>          
+      <joint type="revolute" name="hinge_coupling_right_2_1">
+        <pose>.292 .195 0.115 0 0 0</pose>
+        <child>coupling_right_2</child>
+        <parent>arm_right_2</parent>
+        <axis>
+        <limit>
+          <lower>-1.2</lower>
+          <upper>1.2</upper>
+        </limit>
+        <xyz>0 0 1</xyz>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0.2</damping>
+          <friction>0.9</friction>
+        </dynamics>
+      </axis>
+      </joint>
+      <joint type="revolute" name="hinge_coupling_right_3_1">
+        <pose>-.292 .195 0.115 0 0 0</pose>
+        <child>coupling_right_3</child>
+        <parent>arm_right_3</parent>
+        <axis>
+        <limit>
+          <lower>-1.2</lower>
+          <upper>1.2</upper>
+        </limit>
+        <xyz>0 0 1</xyz>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0.2</damping>
+          <friction>0.9</friction>
+        </dynamics>
+      </axis>
+      </joint>
+
+      <joint type="revolute" name="hinge_coupling_left_1_1">
+      <pose>.0 -.195 0.115 0 0 0</pose>
+      <child>coupling_left_1</child>
+      <parent>arm_left_1</parent>
+      <axis>
+        <limit>
+          <lower>-1.2</lower>
+          <upper>1.2</upper>
+        </limit>
+        <xyz>0 0 1</xyz>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0.2</damping>
+          <friction>0.9</friction>
+        </dynamics>
+      </axis>
+      </joint>
+      <joint type="revolute" name="hinge_coupling_left_2_1">
+      <pose>.292 -.195 0.115 0 0 0</pose>
+      <child>coupling_left_2</child>
+      <parent>arm_left_2</parent>
+      <axis>
+        <limit>
+          <lower>-1.2</lower>
+          <upper>1.2</upper>
+        </limit>
+        <xyz>0 0 1</xyz>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0.2</damping>
+          <friction>0.9</friction>
+        </dynamics>
+      </axis>
+      </joint>
+      <joint type="revolute" name="hinge_coupling_left_3_1">
+      <pose>-.292 -.195 0.115 0 0 0</pose>
+      <child>coupling_left_3</child>
+      <parent>arm_left_3</parent>
+      <axis>
+        <limit>
+          <lower>-1.2</lower>
+          <upper>1.2</upper>
+        </limit>
+        <xyz>0 0 1</xyz>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0.2</damping>
+          <friction>0.9</friction>
+        </dynamics>
+      </axis>
+      </joint> 
+
+<!-- 6. Definition of wheel axis -->
+      <link name="axis_right_1">
+        <pose>0 .255 .125 0 1.5707 1.5707</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>.015</radius>
+              <length>.02</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>.015</radius>
+              <length>.02</length>
+            </cylinder>
+          </geometry>
+        </visual>
+      </link>
+      <link name="axis_right_2">
+        <pose>0.292 .255 .125 0 1.5707 1.5707</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>.015</radius>
+              <length>.02</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>.015</radius>
+              <length>.02</length>
+            </cylinder>
+          </geometry>
+        </visual>
+      </link>
+      <link name="axis_right_3">
+        <pose>-0.292 .255 .125 0 1.5707 1.5707</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>.015</radius>
+              <length>.02</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>.015</radius>
+              <length>.02</length>
+            </cylinder>
+          </geometry>
+        </visual>
+      </link>
+
+      <link name="axis_left_1">
+        <pose>0 -.255 .125 0 1.5707 1.5707</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>.015</radius>
+              <length>.02</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>.015</radius>
+              <length>.02</length>
+            </cylinder>
+          </geometry>
+        </visual>
+      </link>
+      <link name="axis_left_2">
+        <pose>0.292 -.255 .125 0 1.5707 1.5707</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>.015</radius>
+              <length>.02</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>.015</radius>
+              <length>.02</length>
+            </cylinder>
+          </geometry>
+        </visual>
+      </link>
+      <link name="axis_left_3">
+        <pose>-0.292 -.255 .125 0 1.5707 1.5707</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>.015</radius>
+              <length>.02</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>.015</radius>
+              <length>.02</length>
+            </cylinder>
+          </geometry>
+        </visual>
+      </link>
+
+   <joint type="revolute" name="move_axis_wheel_right_1">
+      <pose>0 0 -0.01 0 0 0</pose>
+      <child>axis_right_1</child>
+      <parent>coupling_right_1</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <joint type="revolute" name="move_axis_wheel_right_2">
+      <pose>0 0 -0.01 0 0 0</pose>
+      <child>axis_right_2</child>
+      <parent>coupling_right_2</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <joint type="revolute" name="move_axis_wheel_right_3">
+      <pose>0 0 -0.01 0 0 0</pose>
+      <child>axis_right_3</child>
+      <parent>coupling_right_3</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+    <joint type="revolute" name="move_axis_wheel_left_1">
+      <pose>0 0 0.01 0 0 0</pose>
+      <child>axis_left_1</child>
+      <parent>coupling_left_1</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <joint type="revolute" name="move_axis_wheel_left_2">
+      <pose>0 0 0.01 0 0 0</pose>
+      <child>axis_left_2</child>
+      <parent>coupling_left_2</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <joint type="revolute" name="move_axis_wheel_left_3">
+      <pose>0 0 0.01 0 0 0</pose>
+      <child>axis_left_3</child>
+      <parent>coupling_left_3</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+<!-- 7. Definition of wheels -->
+    <link name="wheel_right_1">
+      <pose>.0 .305 .125 1.5707 0 0</pose>
+      <collision name="collision">
+        <surface>
+         <friction>
+         </friction>
+        </surface>
+        <geometry>
+          <cylinder>
+            <radius>.125</radius>
+            <length>.08</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    <visual name='visual'>
+      <geometry>
+        <mesh>
+          <uri>model://siar/parts/wheels/mesh/wheel.dae</uri>
+        </mesh>
+      </geometry>
+    </visual>
+    </link>
+
+    <link name="wheel_right_2">
+      <pose>.292 .305 .125 1.5707 0 0</pose>
+      <collision name="collision">
+        <surface>
+         <friction>
+         </friction>
+        </surface>
+        <geometry>
+          <cylinder>
+            <radius>.125</radius>
+            <length>.08</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    <visual name='visual'>
+      <geometry>
+        <mesh>
+          <uri>model://siar/parts/wheels/mesh/wheel.dae</uri>
+        </mesh>
+      </geometry>
+    </visual>
+    </link>
+
+    <link name="wheel_right_3">
+      <pose>-.292 .305 .125 1.5707 0 0</pose>
+      <collision name="collision">
+        <surface>
+         <friction>
+         </friction>
+        </surface>
+        <geometry>
+          <cylinder>
+            <radius>.125</radius>
+            <length>.08</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    <visual name='visual'>
+      <geometry>
+        <mesh>
+          <uri>model://siar/parts/wheels/mesh/wheel.dae</uri>
+        </mesh>
+      </geometry>
+    </visual>
+    </link>
+
+    <link name="wheel_left_1">
+      <pose>.0 -.305 .125 -1.5707 0 0</pose>
+      <collision name="collision">
+        <surface>
+         <friction>
+         </friction>
+        </surface>
+        <geometry>
+          <cylinder>
+            <radius>.125</radius>
+            <length>.08</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    <visual name='visual'>
+      <geometry>
+        <mesh>
+          <uri>model://siar/parts/wheels/mesh/wheel.dae</uri>
+        </mesh>
+      </geometry>
+    </visual>
+    </link>
+
+    <link name="wheel_left_2">
+      <pose>.292 -.305 .125 -1.5707 0 0</pose>
+      <collision name="collision">
+        <surface>
+         <friction>
+         </friction>
+        </surface>
+        <geometry>
+          <cylinder>
+            <radius>.125</radius>
+            <length>.08</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    <visual name='visual'>
+      <geometry>
+        <mesh>
+          <uri>model://siar/parts/wheels/mesh/wheel.dae</uri>
+        </mesh>
+      </geometry>
+    </visual>
+    </link>
+
+    <link name="wheel_left_3">
+      <pose>-.292 -.305 .125 -1.5707 0 0</pose>
+      <collision name="collision">
+	    <surface>
+         <friction>
+         </friction>
+        </surface>
+        <geometry>
+          <cylinder>
+            <radius>.125</radius>
+            <length>.08</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    <visual name='visual'>
+      <geometry>
+        <mesh>
+          <uri>model://siar/parts/wheels/mesh/wheel.dae</uri>
+        </mesh>
+      </geometry>
+    </visual>
+    </link>
+
+    <joint type="fixed" name="fix_wheel_axis_right_1">
+      <pose>0 0 -.04 0 0 0</pose>
+      <child>wheel_right_1</child>
+      <parent>axis_right_1</parent>
+    </joint>
+    <joint type="fixed" name="fix_wheel_axis_right_2">
+      <pose>0 0 -.04 0 0 0</pose>
+      <child>wheel_right_2</child>
+      <parent>axis_right_2</parent>
+    </joint>
+    <joint type="fixed" name="fix_wheel_axis_right_3">
+      <pose>0 0 -.04 0 0 0</pose>
+      <child>wheel_right_3</child>
+      <parent>axis_right_3</parent>
+    </joint>
+    <joint type="fixed" name="fix_wheel_axis_left_1">
+      <pose>0 0 .04 0 0 0</pose>
+      <child>wheel_left_1</child>
+      <parent>axis_left_1</parent>
+    </joint>
+    <joint type="fixed" name="fix_wheel_axis_left_2">
+      <pose>0 0 .04 0 0 0</pose>
+      <child>wheel_left_2</child>
+      <parent>axis_left_2</parent>
+    </joint>
+    <joint type="fixed" name="fix_wheel_axis_left_3">
+      <pose>0 0 .04 0 0 0</pose>
+      <child>wheel_left_3</child>
+      <parent>axis_left_3</parent>
+    </joint>
+      
+<!-- 10.   Definition of Sensors and Actuators -->
+    
+    <link name="velodyne_base">
+      <pose>0 0 0.3601 0 0 0</pose>
+      <collision name="base_collision">
+        <geometry>
+          <cylinder>
+            <radius>.04267</radius>
+            <length>.05867</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="base_visual">
+        <pose>0 0 -0.029335 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://siar/sensors/velodyne_hdl32/meshes/velodyne_base.dae</uri> 
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    
+    <link name="velodyne_top">
+      <pose>0 0 0.4262 0 0 0</pose>
+      <collision name="top_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.04267</radius>
+            <length>0.07357</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="top_visual">
+        <pose>0 0 -0.0376785 0 0 1.5707</pose>
+        <geometry>
+          <mesh>
+            <uri>model://siar/sensors/velodyne_hdl32/meshes/velodyne_top.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <sensor type="ray" name="lase_scanr">
+        <pose>0 0 -0.004645 0 0 0</pose>
+        <visualize>false</visualize>
+        <update_rate>15</update_rate>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>180</samples>
+              <resolution>1</resolution>
+              <min_angle>-1.57</min_angle>
+              <max_angle>1.57</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>16</samples>
+              <resolution>1</resolution>
+              <min_angle>0</min_angle>
+              <max_angle>0.3</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.1</min>
+            <max>70</max>
+            <resolution>0.02</resolution>
+          </range>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.0</stddev>
+          </noise>
+        </ray>
+        <!-- <plugin name="gazebo_ros_laser_controller" filename="libgazebo_ros_velodyne_laser.so">
+          <topicName>/velodyne_points</topicName>
+          <frameName>/velodyne_top</frameName>
+          <min_range>0.1</min_range>
+          <max_range>70.0</max_range>
+          <gaussianNoise>0.008</gaussianNoise>  
+        </plugin> -->
+      </sensor>
+      
+      
+    </link>
+
+    <joint type="fixed" name="joint">
+      <pose>0 0 -0.036785 0 0 0</pose>
+      <parent>velodyne_base</parent>
+      <child>velodyne_top</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-10000000000000000</lower>
+          <upper>10000000000000000</upper>
+        </limit>
+      </axis>
+    </joint>
+    
+    <joint name='fixed_velodyne' type='fixed'>
+      <child>velodyne_base</child>
+      <parent>box_battery</parent>
+      <pose> 0 0 0 0 0 0</pose>
+    </joint>
+
+        <!-- Track drive -->
+      <plugin filename="ignition-gazebo-diff-drive-system" name="ignition::gazebo::systems::DiffDrive">
+        <left_joint>move_axis_wheel_left_1</left_joint>
+        <left_joint>move_axis_wheel_left_2 </left_joint>
+        <left_joint>move_axis_wheel_left_3 </left_joint>
+        <right_joint>move_axis_wheel_right_1</right_joint>
+        <right_joint>move_axis_wheel_right_2</right_joint>
+        <right_joint>move_axis_wheel_right_3</right_joint>
+        <wheel_separation>0.42</wheel_separation>
+        <wheel_radius>0.1015</wheel_radius>
+        <odom_publish_frequency>100</odom_publish_frequency>
+        <topic>siar/cmd_vel</topic> #Custom topic that this system will subscribe to in order to receive command velocity messages. This element if optional, and the default value is /model/{name_of_model}/cmd_vel.
+        <odom_topic>siar/odometry</odom_topic>  Custom topic on which this system will publish odometry messages. This element if optional, and the default value is /model/{name_of_model}/odometry.
+        <tf_topic>siar/tf_odom_to_baselink</tf_topic>
+        <frame_id>siar/odom</frame_id>
+        <child_frame_id>siar/base_link</child_frame_id>
+      </plugin>
+
+    
+  </model>
+</sdf> 
