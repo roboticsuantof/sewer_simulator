@@ -14,4 +14,7 @@
 
 ## PACKAGES
 
+For the correct performance of this simulator package, please install next dependencies:
+
 sudo apt-get install ros-noetic-joy
+https://github.com/roboticsuantof/teleop_joy_pkg/
