@@ -1,0 +1,14 @@
+<!--
+-->
+<launch>
+  
+  # TFs
+  <node pkg="tf2_ros" type="static_transform_publisher" name="tf_marble_imu"        args="0.0 0.0 0.165 0 0 0.0 marble/base_link marble/imu" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="tf_marble_os1_sensor" args="0.3 0.0 0.3 0 0 0.0 marble/base_link marble/os1_sensor" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="tf_marble_os1_imu"    args="0.006253 -0.011775 0.007645 0.0 0.0 0.0 1.0 marble/os1_sensor marble/os1_imu"/>
+  <node pkg="tf2_ros" type="static_transform_publisher" name="tf_marble_os1_lidar"  args="0 0.0 0.03618 3.1416 0.0 0.0 marble/os1_sensor marble/os1_lidar"/>
+  <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="tf_marble_rgbd_camera" args="0 0.10 -0.24 1.57 0.0 -1.57 marble/base_link camera_link"/> -->
+   
+  <node pkg="tf2_ros" type="static_transform_publisher" name="odom_tf" args="0 0 0 0 0 0 marble/odom marble/base_link"/>
+
+</launch>	

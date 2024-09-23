@@ -1,0 +1,60 @@
+<launch>
+  <arg name="robot_name" default="marble"/>
+  <arg name="base_frame_id" default="$(arg robot_name)/base_link"/>
+  <arg name="odom_frame_id" default="$(arg robot_name)/odom"/>
+  <arg name="global_frame_id" default="world"/>
+   # Load by YAML file
+  <arg name="initial_x" default="11.017"/>
+  <arg name="initial_y" default="17.241"/>
+  <arg name="initial_z" default="0.544"/>
+  <arg name="initial_a" default="1.469"/> 
+  <arg name="map" default="teatro" />
+  <arg name="map_path" default="$(find marsupial_optimizer)/maps/$(arg map).bt"/>
+
+  <arg name="in_cloud_topic" default="/$(arg robot_name)_os1_cloud_node/points_non_dense"/>
+  <!-- <arg name="imu_topic" default="/$(arg robot_name)/idmind_imu/imu"/> -->
+  <arg name="imu_topic" default="/arco_os1_cloud_node/imu"/>
+
+  <arg name="use_odometry" default="false"/>
+  <arg name="use_imu" default="false"/> #for bags is TRUE
+
+
+    # Fake odometry. You better use a good odometry estimator as LOAM
+  <node pkg="tf2_ros" type="static_transform_publisher" name="odom_tf" args="0 0 0 0 0 0 $(arg robot_name)/odom $(arg robot_name)/base_link" unless="$(arg use_odometry)"/>
+ 
+  # Launch DLL
+  <node name="dll_$(arg robot_name)_node" type="dll_node" pkg="dll" output="screen">
+    <!-- <rosparam command="load" file="$(find marsupial_launchers)/cfg/dll_init_pos_$(arg robot_name)_$(arg map).yaml"/> -->
+    <remap from="/dll_node/map_point_cloud" to="/dll_arco_node/map_point_cloud"/>
+    <remap from="/dll_arco_node/initial_pose" to="/initialpose"/>
+    <remap from="/imu" to="$(arg imu_topic)"/>
+    <param name="in_cloud" value="$(arg in_cloud_topic)" />
+    <param name="base_frame_id" value="$(arg base_frame_id)" />
+    <param name="odom_frame_id" value="$(arg odom_frame_id)" />
+    <param name="global_frame_id" value="$(arg global_frame_id)" />
+    
+    <param name="rate" value="10.0" />
+    <param name="map_path" value="$(arg map_path)" />
+    <param name="publish_point_cloud" value="true" />    
+    <param name="update_min_d" value="0.01" />
+    <param name="update_min_a" value="0.01" /> 
+    <param name="update_min_time" value="0.1" />
+    # Load by YAML file
+    <param name="initial_x"   value="$(arg initial_x)"/>   
+    <param name="initial_y"   value="$(arg initial_y)"/>
+    <param name="initial_z"   value="$(arg initial_z)"/>
+    <param name="initial_a"   value="$(arg initial_a)"/>
+    <param name="use_imu" value="$(arg use_imu)" />
+    <param name="use_yaw_increments" value="true"/>   
+    <param name="align_method" value="1" />  # 1: DLL, 2: NDT, 3: ICP
+  </node>
+
+  <node pkg="odom_to_tf" type="odom_to_tf.py" name="odom_to_tf" if="$(arg use_odometry)">
+    <remap from="/odom" to="/$(arg robot_name)/idmind_motors/odom"/>
+    <param name="odom_frame_id" value="$(arg odom_frame_id)"/>
+    <param name="base_frame_id" value="$(arg base_frame_id)"/>
+    <!-- <param name="laser_frame" value="os1_lidar"/> -->
+    <remap from="imu" to="/$(arg robot_name)/idmind_imu/imu"/>
+  </node>
+
+</launch>	

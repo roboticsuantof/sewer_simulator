@@ -9,8 +9,6 @@
     <arg name="ugv_name" default="marble" />
     <!-- <arg name="model" default="siar/siar.sdf"/> -->
     <arg name="model" default="$(arg ugv_name)/$(arg ugv_name).sdf"/>
-    #UGV Parameter Define real/simulation and controller type
-    <arg name="simulation" value="true" />                                  <!-- Define if it will run on a robot or simulation -->
 
     # --------------------------------------------------------------------- NODES --------------------------------------------------------------------- 
     
@@ -23,9 +21,13 @@
 
      # Spawn the node. IMPORTANT: the world name must be the same as the filename of the world file
 
-    <arg name="x_pos" default="-14" /> 
+    <!-- <arg name="x_pos" default="-14" /> 
     <arg name="y_pos" default="0.00" />
     <arg name="z_pos" default="0.17" />
+    <arg name="y_rot" default="0.00" /> -->
+    <arg name="x_pos" default="-4.3" /> 
+    <arg name="y_pos" default="0.00" />
+    <arg name="z_pos" default="0.28" />
     <arg name="y_rot" default="0.00" />
 
     <node
@@ -53,15 +55,17 @@
             /$(arg ugv_name)/tf_odom_to_baselink@tf2_msgs/TFMessage@ignition.msgs.Pose_V
             ">
         <remap from="/$(arg ugv_name)/tf_odom_to_baselink" to ="/tf"/>   #Publish odom tf 
-        <remap from="/$(arg ugv_name)/os1_cloud_node/points" to="/$(arg ugv_name)_os1_cloud_node/points_non_dense" />
+        <!-- <remap from="/$(arg ugv_name)/os1_cloud_node/points" to="/$(arg ugv_name)/os1_cloud_node/points_non_dense" /> -->
         <remap from="/$(arg ugv_name)/odometry" to="/$(arg ugv_name)/odom" />
     </node>
-
 
     <node pkg="sewer_simulator" type="ign_clock_publisher" name="ign_clock_publisher"/>
 
     # --------------------------------------------------- UGV Simulation ---------------------------------------------------
 
+    # Frames for robots
+    <include file="$(find sewer_simulator)/launch/frames/frames_marble.launch"/>
+    
     # Start teleop_joy
     <include file="$(find teleop_joy_pkg)/launch/teleop_joy.launch">
         <arg name="cmd_vel_topic" default="/$(arg ugv_name)/cmd_vel" />

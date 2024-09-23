@@ -1,0 +1,20 @@
+<launch>
+
+    <arg name="pi"	default="3.141592"/>
+    <arg name="pi/2"	default="1.57"/>
+    <arg name="rviz"	default="true"/>
+
+    <arg name="resolution_octomap" default="0.05"/>
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="ground_broadcaster" args="0 0 0.40 0 0 0 ground camera_init"/> 
+    <node pkg="tf2_ros" type="static_transform_publisher" name="mapping_base_link_aft" args="0 0 -0.4 0 0 0 aft_mapped marble/base_link" required="true"/>    
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="mapping_os1_base_link" args="0.25 0 0 0 0 3.141592 marble/base_link marble/os1_lidar" required="true"/>     -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="mapping_ground" args="0 0 0 0 0 0 ground map"/>     
+    
+    <include file="$(find sewer_simulator)/launch/mapping/aloam_marble.launch"/>
+
+    <node pkg="timed_roslaunch" type="timed_roslaunch.sh"
+        args="2 sewer_simulator octomap_server_marble_simulator.launch resolution:=$(arg resolution_octomap)" name="octomap_servers" output="screen">
+    </node>
+
+</launch>
