@@ -4,6 +4,7 @@ project(sewer_simulator)
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
 add_compile_options(-std=c++14)
+set(CMAKE_BUILD_TYPE Release) #None, Debug, Release, RelWithDebInfo, MinSizeRel
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -106,8 +107,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES sewer_simulator
-#  CATKIN_DEPENDS roscpp rospy
+ LIBRARIES sewer_simulator
+ CATKIN_DEPENDS roscpp rospy 
 #  DEPENDS system_lib
 )
 
@@ -206,12 +207,16 @@ target_link_libraries(ign_clock_publisher  ignition-transport${IGN_TRANSPORT_VER
 add_executable(ground_truth_pose_publisher src/ground_truth_pose_publisher.cpp)
 target_link_libraries(ground_truth_pose_publisher  ignition-transport${IGN_TRANSPORT_VER}::core )
 
-add_library(plugin_siar_arms src/plugin_siar_arms.cpp)
-target_link_libraries(plugin_siar_arms ignition-transport${IGN_TRANSPORT_VER}::core ${ignition-gazebo6_LIBRARIES})
+add_library(ignition-gazebo-siar-arms-control src/plugin_siar_arms.cpp)
+target_link_libraries(ignition-gazebo-siar-arms-control 
+                      ignition-transport${IGN_TRANSPORT_VER}::core 
+                      ${ignition-gazebo6_LIBRARIES}
+                      ${catkin_LIBRARIES} 
+                    )
 
 install(TARGETS
   # hector_gazebo_ros_gps
-  plugin_siar_arms
+  ignition-gazebo-siar-arms-control
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}

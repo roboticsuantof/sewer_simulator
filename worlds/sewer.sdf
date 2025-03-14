@@ -26,8 +26,8 @@
             name="ignition::gazebo::systems::SceneBroadcaster">
         </plugin>
         <!-- <plugin 
-            filename='libgazebo_world_octomap_plugin.so '
-            name='OctomapFromGazeboWorld'>
+            filename="libMapSaverPlugin.so"
+            name="map_saver_plugin">
         </plugin> -->
       <spherical_coordinates>
         <surface_model>EARTH_WGS84</surface_model>

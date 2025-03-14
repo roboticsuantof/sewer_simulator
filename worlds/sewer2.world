@@ -1,0 +1,182 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+    <world name="sewer">
+
+
+        <plugin 
+            filename='libgazebo_world_octomap_plugin.so '
+            name='OctomapFromGazeboWorld'>
+        </plugin>
+
+        <model name="ground_plane">
+            <static>true</static>
+            <link name="link">
+                <collision name="collision">
+                <geometry>
+                    <plane>
+                    <normal>0 0 1</normal>
+                    </plane>
+                </geometry>
+                </collision>
+                <visual name="visual">
+                <geometry>
+                    <plane>
+                    <normal>0 0 1</normal>
+                    <size>100 100</size>
+                    </plane>
+                </geometry>
+                <material>
+                    <ambient>0.8 0.8 0.8 1</ambient>
+                    <diffuse>0.8 0.8 0.8 1</diffuse>
+                    <specular>0.8 0.8 0.8 1</specular>
+                </material>
+                </visual>
+            </link>
+        </model>
+
+        <include>
+          <uri>model://T130_gut30_straight_5m</uri>
+          <name>T130_gut30_straight_5m_1</name>
+          <pose>-5 0 0 0 0 0</pose>
+        </include>
+
+        <include>
+          <uri>model://T130_gut30_X_5m</uri>
+          <name>T130_gut30_X_5m</name>
+          <pose>0 0 0 0 0 0</pose>
+        </include>
+
+        <include>
+          <uri>model://T130_gut30_straight_5m</uri>
+          <name>T130_gut30_straight_5m_2</name>
+          <pose>5 0 0 0 0 0</pose>
+        </include>
+
+        <include>
+          <uri>model://T130_gut30_Y_5m_5m</uri>
+          <name>T130_gut30_Y_5m_5m_1</name>
+          <pose>10 0 0 0 0 0</pose>
+        </include>
+
+        <include>
+          <uri>model://T130_straight_5m_dark_brick</uri>
+          <name>T130_straight_5m_dark_brick_1</name>
+          <pose>15 -10 0 0 0 1.57</pose>
+        </include>
+
+        <!-- <include>
+          <uri>model://T130_T114A_gut30_K_5m_5m</uri>
+          <name>T130_T114A_gut30_K_5m_5m</name>
+          <pose>15 0 0 0 0 0</pose>
+        </include> -->
+
+        <include>
+          <uri>model://T114A_Y_5m</uri>
+          <name>T114A_Y_5m</name>
+          <pose>15 -10 0 0 0 0</pose>
+        </include>
+
+        <include>
+          <uri>model://T114A_straight_5m</uri>
+          <name>T114A_straight_5m_1</name>
+          <pose>5 -15 0 0 0 0</pose>
+        </include>
+
+        <include>
+          <uri>model://T114A_X_5m</uri>
+          <name>T114A_X_5m</name>
+          <pose>0 -15 0 0 0 0</pose>
+        </include>
+
+        <include>
+          <uri>model://T130_straight_5m_dark_brick</uri>
+          <name>T130_straight_5m_dark_brick_2</name>
+          <pose>2.5 -7.5 0 0 0 1.57</pose>
+        </include>
+
+        <include>
+          <uri>model://T114A_straight_5m</uri>
+          <name>T114A_straight_5m_2</name>
+          <pose>2.5 -12.5 0 0 0 1.57</pose>
+        </include>
+
+        <include>
+          <uri>model://T130_Y_5m_5m_dark_brick</uri>
+          <name>T130_Y_5m_5m_dark_brick</name>
+          <pose>-2.5 5.75 0 0 0 0</pose>
+        </include>
+
+        <include>
+          <uri>model://T130_gut30_straight_5m</uri>
+          <name>T130_gut30_straight_5m_3</name>
+          <pose>-7.5 5.75 0 0 0 0</pose>
+        </include>
+
+        <include>
+          <uri>model://T130_gut30_straight_5m</uri>
+          <name>T130_gut30_straight_5m_4</name>
+          <pose>2.5 5.75 0 0 0 0</pose>
+        </include>
+
+        <include>
+          <uri>model://T130_X_5m_dark_brick</uri>
+          <name>T130_X_5m_dark_brick</name>
+          <pose>7.5 5.75 0 0 0 0</pose>
+        </include>
+
+        <include>
+          <uri>model://T130_gut30_Y_5m_5m</uri>
+          <name>T130_gut30_Y_5m_5m_2</name>
+          <pose>20 5 0 0 0 -1.57</pose>
+        </include>
+
+        <include>
+          <uri>model://T130_straight_5m_dark_brick</uri>
+          <name>T130_straight_5m_dark_brick_3</name>
+          <pose>20 5 0 0 0 1.57</pose>
+        </include>
+
+        <include>
+          <uri>model://T130_gut30_Y_5m_5m</uri>
+          <name>T130_gut30_Y_5m_5m_3</name>
+          <pose>15 15 0 0 0 0</pose>
+        </include>
+
+        <include>
+          <uri>model://T130_gut30_Y_5m_5m</uri>
+          <name>T130_gut30_Y_5m_5m_4</name>
+          <pose>10 10 0 0 0 1.57</pose>
+        </include>
+
+        <include>
+          <uri>model://T130_straight_5m_dark_brick</uri>
+          <name>T130_straight_5m_dark_brick_4</name>
+          <pose>10 6 0 0 0 1.57</pose>
+        </include>
+
+        <!-- <include>
+          <uri>model://T130_gut30_K_5m_5m</uri>
+          <name>T130_gut30_K_5m_5m</name>
+          <pose>5 10 0 0 0 0</pose>
+        </include> -->
+
+
+        <include>
+          <uri>model://ramp</uri>
+          <name>ramp</name>
+          <pose>-5.84 0 0.075 0 0 3.14</pose>
+        </include>
+
+
+        <!-- <include>
+          <uri>model://ramp</uri>
+          <name>ramp_2</name>
+          <pose>-14 5 0 0 0 0</pose>
+        </include> -->
+
+    </world>
+</sdf>
+
+
+   
+

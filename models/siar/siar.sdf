@@ -14,6 +14,17 @@
         name="ignition::gazebo::systems::Imu">
       </plugin>
       <pose>0 0.0 .105 0 0 0</pose>
+      <inertial>
+        <mass>4.0</mass>
+        <inertia>
+          <ixx>0.005233</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.2124</iyy>
+          <iyz>0</iyz>
+          <izz>0.2152</izz>
+        </inertia>
+      </inertial>
       <collision name='collision'>
         <geometry>
           <box>
@@ -39,6 +50,17 @@
 <!-- 2. Definition of Arms -->
     <link name='arm_right_1'>
       <pose>.0 .12 .125 0 0 0</pose>
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00244</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00057</iyy>
+          <iyz>0</iyz>
+          <izz>0.00294</izz>
+        </inertia>
+      </inertial>
       <collision name='collision'>
         <geometry>
           <box>
@@ -63,6 +85,17 @@
 
      <link name='arm_right_2'>
       <pose>.292 .12 .125 0 0 0</pose> 
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00244</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00057</iyy>
+          <iyz>0</iyz>
+          <izz>0.00294</izz>
+        </inertia>
+      </inertial>
       <collision name='collision'>
         <geometry>
           <box>
@@ -87,6 +120,17 @@
 
      <link name='arm_right_3'>
       <pose>-.292 .12 .125 0 0 0</pose>
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00244</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00057</iyy>
+          <iyz>0</iyz>
+          <izz>0.00294</izz>
+        </inertia>
+      </inertial>
       <collision name='collision'>
         <geometry>
           <box>
@@ -111,6 +155,17 @@
 
     <link name='arm_left_1'>
        <pose>.0 -.12 .125 0 0 0</pose>
+       <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00244</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00057</iyy>
+          <iyz>0</iyz>
+          <izz>0.00294</izz>
+        </inertia>
+      </inertial>
        <collision name='collision'>
         <geometry>
           <box>
@@ -135,6 +190,17 @@
 
     <link name='arm_left_2'> 
       <pose>.292 -.12 .125 0 0 0</pose>
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00244</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00057</iyy>
+          <iyz>0</iyz>
+          <izz>0.00294</izz>
+        </inertia>
+      </inertial>
       <collision name='collision'>
         <geometry>
           <box>
@@ -159,6 +225,17 @@
 
   <link name='arm_left_3'> 
       <pose>-.292 -.12 .125 0 0 0</pose>
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00244</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00057</iyy>
+          <iyz>0</iyz>
+          <izz>0.00294</izz>
+        </inertia>
+      </inertial>
       <collision name='collision'>
         <geometry>
           <box>
@@ -187,15 +264,16 @@
       <parent>chassis</parent>
       <axis>
         <limit>
-          <lower>-1.2</lower>
-          <upper>1.2</upper>
+          <lower>-0.7</lower>
+          <upper>0.7</upper>
+          <effort>1e6</effort>
         </limit>
         <xyz>0 0 1</xyz>
         <dynamics>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-          <damping>0.1</damping>
-          <friction>0.5</friction>
+          <damping>1.0</damping>
+          <friction>1.0</friction>
         </dynamics>
       </axis>
     </joint>
@@ -205,15 +283,16 @@
       <parent>chassis</parent>
       <axis>
         <limit>
-          <lower>-1.2</lower>
-          <upper>1.2</upper>
+          <lower>-0.7</lower>
+          <upper>0.7</upper>
+          <effort>1e6</effort>
         </limit>
         <xyz>0 0 1</xyz>
         <dynamics>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-          <damping>0.1</damping>
-          <friction>0.5</friction>
+          <damping>1.0</damping>
+          <friction>1.0</friction>
         </dynamics>
       </axis>
     </joint>
@@ -223,15 +302,16 @@
       <parent>chassis</parent>
       <axis>
         <limit>
-          <lower>-1.2</lower>
-          <upper>1.2</upper>
+          <lower>-0.7</lower>
+          <upper>0.7</upper>
+          <effort>1e6</effort>
         </limit>
         <xyz>0 0 1</xyz>
         <dynamics>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-          <damping>0.1</damping>
-          <friction>0.5</friction>
+          <damping>1.0</damping>
+          <friction>1.0</friction>
         </dynamics>
       </axis>
     </joint>
@@ -241,15 +321,16 @@
       <parent>chassis</parent>
       <axis>
         <limit>
-          <lower>-1.2</lower>
-          <upper>1.2</upper>
+          <lower>-0.7</lower>
+          <upper>0.7</upper>
+          <effort>1e6</effort>
         </limit>
         <xyz>0 0 1</xyz>
         <dynamics>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-          <damping>0.1</damping>
-          <friction>0.5</friction>
+          <damping>1.0</damping>
+          <friction>1.0</friction>
         </dynamics>
       </axis>
     </joint>
@@ -259,15 +340,15 @@
       <parent>chassis</parent>
       <axis>
         <limit>
-          <lower>-1.2</lower>
-          <upper>1.2</upper>
+          <lower>-0.7</lower>
+          <upper>0.7</upper>
         </limit>
         <xyz>0 0 1</xyz>
         <dynamics>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-          <damping>0.1</damping>
-          <friction>0.5</friction>
+          <damping>1.0</damping>
+          <friction>1.0</friction>
         </dynamics>
       </axis>
     </joint>     
@@ -277,15 +358,15 @@
       <parent>chassis</parent>
       <axis>
         <limit>
-          <lower>-1.2</lower>
-          <upper>1.2</upper>
+          <lower>-0.7</lower>
+          <upper>0.7</upper>
         </limit>
         <xyz>0 0 1</xyz>
         <dynamics>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-          <damping>0.1</damping>
-          <friction>0.5</friction>
+          <damping>1.0</damping>
+          <friction>1.0</friction>
         </dynamics>
       </axis>
     </joint>
@@ -293,8 +374,20 @@
 <!-- 4. Box of battery and electronic and Handle to Cameras  -->
 
    <link name="box_battery">
+      <inertial>
+        <pose>.0 .0 .26 0 0 0</pose>
+        <mass>14.0</mass>
+        <inertia>
+          <ixx>0.1252</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.1252</iyy>
+          <iyz>0</iyz>
+          <izz>0.1577</izz>
+        </inertia>
+      </inertial>
       <collision name='collision_1'>
-      <pose>.0 .0 .26 0 0 0</pose>
+        <pose>.0 .0 .26 0 0 0</pose>
         <geometry>
           <box>
             <size>.26 .26 .07</size>
@@ -368,20 +461,20 @@
         </material>
       </visual>
       <sensor name="imu_sensor" type="imu">
-	<always_on>true</always_on>
-	<update_rate>100</update_rate>
-	<visualize>true</visualize>
-	<topic>imu_siar_topic</topic>
-	<!-- <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
-	  <topicName>imu</topicName>
-	  <bodyName>imu_link</bodyName>
-	  <updateRateHZ>10.0</updateRateHZ>
-	  <gaussianNoise>0.0</gaussianNoise>
-	  <xyzOffset>0 0 0</xyzOffset>
-	  <rpyOffset>0 0 0</rpyOffset>
-	  <frameName>imu_link</frameName>
-	</plugin> -->
-	<pose>0 0 0 0 0 0</pose>
+        <always_on>true</always_on>
+        <update_rate>100</update_rate>
+        <visualize>true</visualize>
+        <topic>imu_siar_topic</topic>
+        <!-- <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+          <topicName>imu</topicName>
+          <bodyName>imu_link</bodyName>
+          <updateRateHZ>10.0</updateRateHZ>
+          <gaussianNoise>0.0</gaussianNoise>
+          <xyzOffset>0 0 0</xyzOffset>
+          <rpyOffset>0 0 0</rpyOffset>
+          <frameName>imu_link</frameName>
+        </plugin> -->
+        <pose>0 0 0 0 0 0</pose>
       </sensor>
    </link>
 
@@ -394,6 +487,18 @@
 <!-- 5. Definition of couplings between Joint-Wheel -->
 
    <link name="coupling_right_1">
+      <inertial>
+        <pose>.0 .215 .09 0 0 0</pose>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.000333</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000771</iyy>
+          <iyz>0</iyz>
+          <izz>0.000571</izz>
+        </inertia>
+      </inertial>
       <collision name='collision_1'>
       <pose>.0 .215 .09 0 0 0</pose>
         <geometry>
@@ -445,6 +550,18 @@
    </link>
 
    <link name="coupling_right_2">
+      <inertial>
+        <pose>.292 .215 .09 0 0 0</pose>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.000333</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000771</iyy>
+          <iyz>0</iyz>
+          <izz>0.000571</izz>
+        </inertia>
+      </inertial>
       <collision name='collision_1'>
       <pose>.292 .215 .09 0 0 0</pose>
         <geometry>
@@ -496,6 +613,18 @@
    </link>
 
    <link name="coupling_right_3">
+      <inertial>
+        <pose>-.292 .215 .09 0 0 0</pose>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.000333</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000771</iyy>
+          <iyz>0</iyz>
+          <izz>0.000571</izz>
+        </inertia>
+      </inertial>
       <collision name='collision_1'>
       <pose>-.292 .215 .09 0 0 0</pose>
         <geometry>
@@ -547,6 +676,18 @@
    </link>
 
    <link name="coupling_left_1">
+      <inertial>
+        <pose>.0 -.215 .09 0 0 0</pose>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.000333</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000771</iyy>
+          <iyz>0</iyz>
+          <izz>0.000571</izz>
+        </inertia>
+      </inertial>
       <collision name='collision_1'>
       <pose>.0 -.215 .09 0 0 0</pose>
         <geometry>
@@ -598,6 +739,18 @@
    </link>
 
    <link name="coupling_left_2">
+      <inertial>
+        <pose>.292 -.215 .09 0 0 0</pose>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.000333</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000771</iyy>
+          <iyz>0</iyz>
+          <izz>0.000571</izz>
+        </inertia>
+      </inertial>
       <collision name='collision'>
       <pose>.292 -.215 .09 0 0 0</pose>
         <geometry>
@@ -649,6 +802,18 @@
    </link>
 
    <link name="coupling_left_3">
+      <inertial>
+        <pose>-.292 -.215 .09 0 0 0</pose>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.000333</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000771</iyy>
+          <iyz>0</iyz>
+          <izz>0.000571</izz>
+        </inertia>
+      </inertial>
       <collision name='collision_1'>
       <pose>-.292 -.215 .09 0 0 0</pose>
         <geometry>
@@ -699,111 +864,111 @@
       </visual>
    </link>
 
-      <joint type="revolute" name="hinge_coupling_right_1_1">
+      <joint type="revolute" name="hinge_coupling_right_1">
         <pose>.0 .195 0.115 0 0 0</pose>
         <child>coupling_right_1</child>
         <parent>arm_right_1</parent>
         <axis>
         <limit>
-          <lower>-1.2</lower>
-          <upper>1.2</upper>
+          <lower>-0.7</lower>
+          <upper>0.7</upper>
         </limit>
         <xyz>0 0 1</xyz>
         <dynamics>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-          <damping>0.2</damping>
+          <damping>1.0</damping>
           <friction>0.9</friction>
         </dynamics>
       </axis>
       </joint>          
-      <joint type="revolute" name="hinge_coupling_right_2_1">
+      <joint type="revolute" name="hinge_coupling_right_2">
         <pose>.292 .195 0.115 0 0 0</pose>
         <child>coupling_right_2</child>
         <parent>arm_right_2</parent>
         <axis>
         <limit>
-          <lower>-1.2</lower>
-          <upper>1.2</upper>
+          <lower>-0.7</lower>
+          <upper>0.7</upper>
         </limit>
         <xyz>0 0 1</xyz>
         <dynamics>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-          <damping>0.2</damping>
+          <damping>1.0</damping>
           <friction>0.9</friction>
         </dynamics>
       </axis>
       </joint>
-      <joint type="revolute" name="hinge_coupling_right_3_1">
+      <joint type="revolute" name="hinge_coupling_right_3">
         <pose>-.292 .195 0.115 0 0 0</pose>
         <child>coupling_right_3</child>
         <parent>arm_right_3</parent>
         <axis>
         <limit>
-          <lower>-1.2</lower>
-          <upper>1.2</upper>
+          <lower>-0.7</lower>
+          <upper>0.7</upper>
         </limit>
         <xyz>0 0 1</xyz>
         <dynamics>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-          <damping>0.2</damping>
+          <damping>1.0</damping>
           <friction>0.9</friction>
         </dynamics>
       </axis>
       </joint>
 
-      <joint type="revolute" name="hinge_coupling_left_1_1">
+      <joint type="revolute" name="hinge_coupling_left_1">
       <pose>.0 -.195 0.115 0 0 0</pose>
       <child>coupling_left_1</child>
       <parent>arm_left_1</parent>
       <axis>
         <limit>
-          <lower>-1.2</lower>
-          <upper>1.2</upper>
+          <lower>-0.7</lower>
+          <upper>0.7</upper>
         </limit>
         <xyz>0 0 1</xyz>
         <dynamics>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-          <damping>0.2</damping>
+          <damping>1.0</damping>
           <friction>0.9</friction>
         </dynamics>
       </axis>
       </joint>
-      <joint type="revolute" name="hinge_coupling_left_2_1">
+      <joint type="revolute" name="hinge_coupling_left_2">
       <pose>.292 -.195 0.115 0 0 0</pose>
       <child>coupling_left_2</child>
       <parent>arm_left_2</parent>
       <axis>
         <limit>
-          <lower>-1.2</lower>
-          <upper>1.2</upper>
+          <lower>-0.7</lower>
+          <upper>0.7</upper>
         </limit>
         <xyz>0 0 1</xyz>
         <dynamics>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-          <damping>0.2</damping>
+          <damping>1.0</damping>
           <friction>0.9</friction>
         </dynamics>
       </axis>
       </joint>
-      <joint type="revolute" name="hinge_coupling_left_3_1">
+      <joint type="revolute" name="hinge_coupling_left_3">
       <pose>-.292 -.195 0.115 0 0 0</pose>
       <child>coupling_left_3</child>
       <parent>arm_left_3</parent>
       <axis>
         <limit>
-          <lower>-1.2</lower>
-          <upper>1.2</upper>
+          <lower>-0.7</lower>
+          <upper>0.7</upper>
         </limit>
         <xyz>0 0 1</xyz>
         <dynamics>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-          <damping>0.2</damping>
+          <damping>1.0</damping>
           <friction>0.9</friction>
         </dynamics>
       </axis>
@@ -812,6 +977,17 @@
 <!-- 6. Definition of wheel axis -->
       <link name="axis_right_1">
         <pose>0 .255 .125 0 1.5707 1.5707</pose>
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.00000667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00000667</iyy>
+            <iyz>0</iyz>
+            <izz>0.00000667</izz>
+          </inertia>
+        </inertial>
         <collision name="collision">
           <geometry>
             <cylinder>
@@ -831,6 +1007,17 @@
       </link>
       <link name="axis_right_2">
         <pose>0.292 .255 .125 0 1.5707 1.5707</pose>
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.00000667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00000667</iyy>
+            <iyz>0</iyz>
+            <izz>0.00000667</izz>
+          </inertia>
+        </inertial>
         <collision name="collision">
           <geometry>
             <cylinder>
@@ -850,6 +1037,17 @@
       </link>
       <link name="axis_right_3">
         <pose>-0.292 .255 .125 0 1.5707 1.5707</pose>
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.00000667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00000667</iyy>
+            <iyz>0</iyz>
+            <izz>0.00000667</izz>
+          </inertia>
+        </inertial>
         <collision name="collision">
           <geometry>
             <cylinder>
@@ -870,6 +1068,17 @@
 
       <link name="axis_left_1">
         <pose>0 -.255 .125 0 1.5707 1.5707</pose>
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.00000667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00000667</iyy>
+            <iyz>0</iyz>
+            <izz>0.00000667</izz>
+          </inertia>
+        </inertial>
         <collision name="collision">
           <geometry>
             <cylinder>
@@ -889,6 +1098,17 @@
       </link>
       <link name="axis_left_2">
         <pose>0.292 -.255 .125 0 1.5707 1.5707</pose>
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.00000667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00000667</iyy>
+            <iyz>0</iyz>
+            <izz>0.00000667</izz>
+          </inertia>
+        </inertial>
         <collision name="collision">
           <geometry>
             <cylinder>
@@ -908,6 +1128,17 @@
       </link>
       <link name="axis_left_3">
         <pose>-0.292 -.255 .125 0 1.5707 1.5707</pose>
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.00000667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00000667</iyy>
+            <iyz>0</iyz>
+            <izz>0.00000667</izz>
+          </inertia>
+        </inertial>
         <collision name="collision">
           <geometry>
             <cylinder>
@@ -979,6 +1210,17 @@
 <!-- 7. Definition of wheels -->
     <link name="wheel_right_1">
       <pose>.0 .305 .125 1.5707 0 0</pose>
+      <inertial>
+          <mass>0.6</mass>
+          <inertia>
+            <ixx>0.003445</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.003445</iyy>
+            <iyz>0</iyz>
+            <izz>0.00625</izz>
+          </inertia>
+      </inertial>
       <collision name="collision">
         <surface>
          <friction>
@@ -1002,6 +1244,17 @@
 
     <link name="wheel_right_2">
       <pose>.292 .305 .125 1.5707 0 0</pose>
+      <inertial>
+          <mass>0.6</mass>
+          <inertia>
+            <ixx>0.003445</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.003445</iyy>
+            <iyz>0</iyz>
+            <izz>0.00625</izz>
+          </inertia>
+      </inertial>
       <collision name="collision">
         <surface>
          <friction>
@@ -1025,6 +1278,17 @@
 
     <link name="wheel_right_3">
       <pose>-.292 .305 .125 1.5707 0 0</pose>
+      <inertial>
+          <mass>0.6</mass>
+          <inertia>
+            <ixx>0.003445</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.003445</iyy>
+            <iyz>0</iyz>
+            <izz>0.00625</izz>
+          </inertia>
+      </inertial>
       <collision name="collision">
         <surface>
          <friction>
@@ -1048,6 +1312,17 @@
 
     <link name="wheel_left_1">
       <pose>.0 -.305 .125 -1.5707 0 0</pose>
+      <inertial>
+          <mass>0.6</mass>
+          <inertia>
+            <ixx>0.003445</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.003445</iyy>
+            <iyz>0</iyz>
+            <izz>0.00625</izz>
+          </inertia>
+      </inertial>
       <collision name="collision">
         <surface>
          <friction>
@@ -1071,6 +1346,17 @@
 
     <link name="wheel_left_2">
       <pose>.292 -.305 .125 -1.5707 0 0</pose>
+      <inertial>
+          <mass>0.6</mass>
+          <inertia>
+            <ixx>0.003445</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.003445</iyy>
+            <iyz>0</iyz>
+            <izz>0.00625</izz>
+          </inertia>
+      </inertial>
       <collision name="collision">
         <surface>
          <friction>
@@ -1094,6 +1380,17 @@
 
     <link name="wheel_left_3">
       <pose>-.292 -.305 .125 -1.5707 0 0</pose>
+      <inertial>
+          <mass>0.6</mass>
+          <inertia>
+            <ixx>0.003445</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.003445</iyy>
+            <iyz>0</iyz>
+            <izz>0.00625</izz>
+          </inertia>
+      </inertial>
       <collision name="collision">
 	    <surface>
          <friction>
@@ -1150,6 +1447,17 @@
     
     <link name="velodyne_base">
       <pose>0 0 0.3601 0 0 0</pose>
+      <inertial>
+          <mass>1.0</mass>
+          <inertia>
+            <ixx>0.001058</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.001058</iyy>
+            <iyz>0</iyz>
+            <izz>0.001214</izz>
+          </inertia>
+      </inertial>
       <collision name="base_collision">
         <geometry>
           <cylinder>
@@ -1170,6 +1478,17 @@
     
     <link name="velodyne_top">
       <pose>0 0 0.4262 0 0 0</pose>
+      <inertial>
+          <mass>0.6</mass>
+          <inertia>
+            <ixx>0.00063485</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00063485</iyy>
+            <iyz>0</iyz>
+            <izz>0.0007283</izz>
+          </inertia>
+      </inertial>
       <collision name="top_collision">
         <geometry>
           <cylinder>
@@ -1186,7 +1505,6 @@
           </mesh>
         </geometry>
       </visual>
-
       <sensor type="ray" name="lase_scanr">
         <pose>0 0 -0.004645 0 0 0</pose>
         <visualize>false</visualize>
@@ -1225,8 +1543,6 @@
           <gaussianNoise>0.008</gaussianNoise>  
         </plugin> -->
       </sensor>
-      
-      
     </link>
 
     <joint type="fixed" name="joint">
@@ -1266,6 +1582,146 @@
         <child_frame_id>siar/base_link</child_frame_id>
       </plugin>
 
+      <!-- <plugin filename="libignition-gazebo-siar-arms-control" name="ignition::gazebo::ArmControlPlugin">
+        <rightArmJoints>hinge_arm_right_1 hinge_arm_right_2 hinge_arm_right_3</rightArmJoints>
+        <leftArmJoints>hinge_arm_left_1 hinge_arm_left_2 hinge_arm_left_3</leftArmJoints>
+      </plugin> -->
+
+
+      <plugin filename="ignition-gazebo-joint-position-controller-system" name="ignition::gazebo::systems::JointPositionController">
+        <joint_name>hinge_arm_right_1</joint_name>
+        <topic>siar/arm_right_1_cmd</topic>
+        <p_gain>1000</p_gain>
+        <i_gain>100</i_gain>
+        <d_gain>0.0</d_gain>
+        <i_max>1</i_max>
+        <i_min>-1</i_min>
+        <cmd_max>1000</cmd_max>
+        <cmd_min>-1000</cmd_min>
+      </plugin>
+      <plugin filename="ignition-gazebo-joint-position-controller-system" name="ignition::gazebo::systems::JointPositionController">
+        <joint_name>hinge_arm_right_2</joint_name>
+        <topic>siar/arm_right_2_cmd</topic>
+        <p_gain>1000</p_gain>
+        <i_gain>100</i_gain>
+        <d_gain>0.0</d_gain>
+        <i_max>1</i_max>
+        <i_min>-1</i_min>
+        <cmd_max>1000</cmd_max>
+        <cmd_min>-1000</cmd_min>
+      </plugin>
+      <plugin filename="ignition-gazebo-joint-position-controller-system" name="ignition::gazebo::systems::JointPositionController">
+        <joint_name>hinge_arm_right_3</joint_name>
+        <topic>siar/arm_right_3_cmd</topic>
+        <p_gain>1000</p_gain>
+        <i_gain>100</i_gain>
+        <d_gain>0.0</d_gain>
+        <i_max>1</i_max>
+        <i_min>-1</i_min>
+        <cmd_max>1000</cmd_max>
+        <cmd_min>-1000</cmd_min>
+      </plugin>
+      <plugin filename="ignition-gazebo-joint-position-controller-system" name="ignition::gazebo::systems::JointPositionController">
+        <joint_name>hinge_arm_left_1</joint_name>
+        <topic>siar/arm_left_1_cmd</topic>
+        <p_gain>1000</p_gain>
+        <i_gain>100</i_gain>
+        <d_gain>0.0</d_gain>
+        <i_max>1</i_max>
+        <i_min>-1</i_min>
+        <cmd_max>1000</cmd_max>
+        <cmd_min>-1000</cmd_min>
+      </plugin>
+      <plugin filename="ignition-gazebo-joint-position-controller-system" name="ignition::gazebo::systems::JointPositionController">
+        <joint_name>hinge_arm_left_2</joint_name>
+        <topic>siar/arm_left_2_cmd</topic>
+        <p_gain>1000</p_gain>
+        <i_gain>100</i_gain>
+        <d_gain>0.0</d_gain>
+        <i_max>1</i_max>
+        <i_min>-1</i_min>
+        <cmd_max>1000</cmd_max>
+        <cmd_min>-1000</cmd_min>
+      </plugin>
+      <plugin filename="ignition-gazebo-joint-position-controller-system" name="ignition::gazebo::systems::JointPositionController">
+        <joint_name>hinge_arm_left_3</joint_name>
+        <topic>siar/arm_left_3_cmd</topic>
+        <p_gain>1000</p_gain>
+        <i_gain>100</i_gain>
+        <d_gain>0.0</d_gain>
+        <i_max>1</i_max>
+        <i_min>-1</i_min>
+        <cmd_max>1000</cmd_max>
+        <cmd_min>-1000</cmd_min>
+      </plugin>
+
+
+      <plugin filename="ignition-gazebo-joint-position-controller-system" name="ignition::gazebo::systems::JointPositionController">
+        <joint_name>hinge_coupling_right_1</joint_name>
+        <topic>siar/coupling_right_1_cmd</topic>
+        <p_gain>1000</p_gain>
+        <i_gain>100</i_gain>
+        <d_gain>0.0</d_gain>
+        <i_max>1</i_max>
+        <i_min>-1</i_min>
+        <cmd_max>1000</cmd_max>
+        <cmd_min>-1000</cmd_min>
+      </plugin>
+      <plugin filename="ignition-gazebo-joint-position-controller-system" name="ignition::gazebo::systems::JointPositionController">
+        <joint_name>hinge_coupling_right_2</joint_name>
+        <topic>siar/coupling_right_2_cmd</topic>
+        <p_gain>1000</p_gain>
+        <i_gain>100</i_gain>
+        <d_gain>0.0</d_gain>
+        <i_max>1</i_max>
+        <i_min>-1</i_min>
+        <cmd_max>1000</cmd_max>
+        <cmd_min>-1000</cmd_min>
+      </plugin>
+      <plugin filename="ignition-gazebo-joint-position-controller-system" name="ignition::gazebo::systems::JointPositionController">
+        <joint_name>hinge_coupling_right_3</joint_name>
+        <topic>siar/coupling_right_3_cmd</topic>
+        <p_gain>1000</p_gain>
+        <i_gain>100</i_gain>
+        <d_gain>0.0</d_gain>
+        <i_max>1</i_max>
+        <i_min>-1</i_min>
+        <cmd_max>1000</cmd_max>
+        <cmd_min>-1000</cmd_min>
+      </plugin>
+      <plugin filename="ignition-gazebo-joint-position-controller-system" name="ignition::gazebo::systems::JointPositionController">
+        <joint_name>hinge_coupling_left_1</joint_name>
+        <topic>siar/coupling_left_1_cmd</topic>
+        <p_gain>1000</p_gain>
+        <i_gain>100</i_gain>
+        <d_gain>0.0</d_gain>
+        <i_max>1</i_max>
+        <i_min>-1</i_min>
+        <cmd_max>1000</cmd_max>
+        <cmd_min>-1000</cmd_min>
+      </plugin>
+      <plugin filename="ignition-gazebo-joint-position-controller-system" name="ignition::gazebo::systems::JointPositionController">
+        <joint_name>hinge_coupling_left_2</joint_name>
+        <topic>siar/coupling_left_2_cmd</topic>
+        <p_gain>1000</p_gain>
+        <i_gain>100</i_gain>
+        <d_gain>0.0</d_gain>
+        <i_max>1</i_max>
+        <i_min>-1</i_min>
+        <cmd_max>1000</cmd_max>
+        <cmd_min>-1000</cmd_min>
+      </plugin>
+      <plugin filename="ignition-gazebo-joint-position-controller-system" name="ignition::gazebo::systems::JointPositionController">
+        <joint_name>hinge_coupling_left_3</joint_name>
+        <topic>siar/coupling_left_3_cmd</topic>
+        <p_gain>1000</p_gain>
+        <i_gain>100</i_gain>
+        <d_gain>0.0</d_gain>
+        <i_max>1</i_max>
+        <i_min>-1</i_min>
+        <cmd_max>1000</cmd_max>
+        <cmd_min>-1000</cmd_min>
+      </plugin>
     
   </model>
 </sdf> 
